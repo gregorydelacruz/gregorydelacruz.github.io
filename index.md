@@ -17,7 +17,7 @@
 
 ---
 
-### Category Name 2
+### Affiliate Sites
 
 - [Project 1 Title](http://example.com/)
 - [Project 2 Title](http://example.com/)
