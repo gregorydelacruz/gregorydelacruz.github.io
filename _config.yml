@@ -1,10 +1,8 @@
 title: Gregory de la Cruz # your name (or website title) here
 logo: "/images/logo.png?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  GitHub POC proof of concept 
-  <br><br>
-  Sanity Check
-  <br><br>
+  
+  
   <a href="http://linkedin.com/in/gregorydelacruz/">View My LinkedIn Profile</a> 
   
 theme: jekyll-theme-minimal
