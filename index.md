@@ -4,7 +4,8 @@
 
 ### eComm Sites
 
-[Project 1 Title](/sample_page)
+[test](http://google.com)
+<img src="images/dummy_thumbnail.jpg?raw=true"/>
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
