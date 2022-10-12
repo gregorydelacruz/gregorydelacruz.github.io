@@ -51,7 +51,7 @@
 
 ---
 [Mango Dragon](https://www.amazon.com/dp/B08LVT4CBW)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="images/mango dragon.png?raw=true"/>
 
 ---
 
