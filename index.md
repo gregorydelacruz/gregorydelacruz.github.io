@@ -33,7 +33,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-### Arbitrage Sites
+### ##Arbitrage Sites
 
 - [Project 1 Title](http://example.com/)
 - [Project 2 Title](http://example.com/)
