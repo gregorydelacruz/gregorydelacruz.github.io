@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gregory de la Cruz — Web Entrepreneur & Publisher</title>
+  <meta name="description" content="Gregory de la Cruz — solo web entrepreneur, WordPress veteran, author of 25+ books, and operator of a pickleball content network reaching millions of players." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --green: #2ecc71;
+      --green-dark: #27ae60;
+      --mid: #4a5568;
+      --light: #f7f8fa;
+      --border: #e2e8f0;
+      --white: #ffffff;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.7;
+      font-size: 17px;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.15em;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88em;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 80px 80px;
+      gap: 80px;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 45%;
+      height: 100%;
+      background: var(--light);
+      z-index: -1;
+    }
+    .hero-text { animation: fadeUp 0.8s ease both; }
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.78em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--green);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8em, 5vw, 4em);
+      line-height: 1.1;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green-dark);
+    }
+    .hero-desc {
+      font-size: 1.05em;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      display: inline-block;
+      border: 2px solid var(--border);
+      color: var(--navy);
+      padding: 11px 26px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .hero-photo-wrap {
+      position: relative;
+      width: 340px;
+      height: 340px;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      opacity: 0.3;
+    }
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -24px;
+      border: 1px solid var(--green);
+      border-radius: 50%;
+      opacity: 0.15;
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--green);
+      display: block;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: 2.2em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 0.78em;
+      color: var(--mid);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 100px 80px;
+    }
+    .section-label {
+      font-size: 0.78em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--green);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8em, 3vw, 2.6em);
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-intro {
+      font-size: 1.05em;
+      color: var(--mid);
+      max-width: 620px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--mid);
+      margin-bottom: 20px;
+      line-height: 1.85;
+    }
+    .about-text p strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .about-card {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 40px;
+      color: var(--white);
+    }
+    .about-card-label {
+      font-size: 0.75em;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    .about-card-quote {
+      font-family: var(--serif);
+      font-size: 1.25em;
+      font-style: italic;
+      line-height: 1.6;
+      color: #e2e8f0;
+      margin-bottom: 24px;
+    }
+    .about-card-attr {
+      font-size: 0.85em;
+      color: #94a3b8;
+    }
+
+    /* ── NETWORK ── */
+    .network { background: var(--light); }
+    .network-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .network-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .network-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .network-card:hover::before { transform: scaleX(1); }
+    .network-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .network-card-icon {
+      font-size: 1.8em;
+      margin-bottom: 16px;
+    }
+    .network-card-name {
+      font-family: var(--serif);
+      font-size: 1.3em;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .network-card-url {
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--green-dark);
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+      text-transform: lowercase;
+    }
+    .network-card-desc {
+      font-size: 0.92em;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .network-card-tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.75em;
+      font-weight: 600;
+      background: var(--light);
+      color: var(--mid);
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── BOOKS ── */
+    .books { background: var(--white); }
+    .books-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .books-text p {
+      color: var(--mid);
+      margin-bottom: 20px;
+      line-height: 1.85;
+    }
+    .books-count {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 40px 0;
+    }
+    .books-count-num {
+      font-family: var(--serif);
+      font-size: 5em;
+      color: var(--navy);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .books-count-label {
+      font-size: 1em;
+      color: var(--mid);
+      font-weight: 500;
+      max-width: 140px;
+      line-height: 1.4;
+    }
+    .books-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .books-cat {
+      font-size: 0.82em;
+      font-weight: 600;
+      background: var(--light);
+      color: var(--navy);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+    .books-visual {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .book-spine {
+      height: 180px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.75em;
+      color: white;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      text-align: center;
+      padding: 12px 8px;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+    }
+    .spine-1 { background: linear-gradient(160deg, #1a3a5c, #0d1b2a); }
+    .spine-2 { background: linear-gradient(160deg, #27ae60, #1e8449); height: 210px; }
+    .spine-3 { background: linear-gradient(160deg, #2471a3, #1a5276); }
+    .spine-4 { background: linear-gradient(160deg, #6c3483, #4a235a); height: 195px; }
+    .spine-5 { background: linear-gradient(160deg, #0d1b2a, #1a3a5c); }
+    .spine-6 { background: linear-gradient(160deg, #1e8449, #145a32); height: 220px; }
+
+    /* ── STACK ── */
+    .stack { background: var(--navy); }
+    .stack .section-label { color: var(--green); }
+    .stack .section-label::before { background: var(--green); }
+    .stack .section-title { color: var(--white); }
+    .stack .section-intro { color: #94a3b8; }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .stack-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 28px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .stack-card:hover {
+      background: rgba(46,204,113,0.08);
+      border-color: rgba(46,204,113,0.3);
+    }
+    .stack-card-category {
+      font-size: 0.72em;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+    .stack-items {
+      list-style: none;
+    }
+    .stack-items li {
+      font-size: 0.92em;
+      color: #cbd5e1;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stack-items li:last-child { border-bottom: none; }
+    .stack-items li::before {
+      content: '→';
+      color: var(--green);
+      font-size: 0.85em;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--light); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-text p {
+      color: var(--mid);
+      margin-bottom: 20px;
+      line-height: 1.85;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 500;
+      font-size: 0.95em;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-link:hover {
+      border-color: var(--green);
+      transform: translateX(4px);
+    }
+    .contact-link-icon { font-size: 1.2em; }
+    .contact-link-label { color: var(--mid); font-size: 0.82em; font-weight: 400; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: #64748b;
+      text-align: center;
+      padding: 40px 80px;
+      font-size: 0.85em;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 100px 32px 60px;
+        gap: 48px;
+        text-align: center;
+      }
+      .hero::before { display: none; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-desc { margin: 0 auto 40px; }
+      .hero-ctas { justify-content: center; }
+      .hero-photo { order: -1; }
+      .hero-photo-wrap { width: 240px; height: 240px; }
+      .hero-stats { justify-content: center; }
+      section { padding: 72px 32px; }
+      .about-grid,
+      .books-inner,
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .network-grid { grid-template-columns: 1fr; }
+      .stack-grid { grid-template-columns: 1fr 1fr; }
+      .books-visual { display: none; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .stack-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-name">Gregory de la Cruz</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#network">Network</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Web Entrepreneur &amp; Publisher</p>
+      <h1>Gregory<br>de la Cruz</h1>
+      <p class="hero-desc">Solo operator building content networks at the intersection of niche publishing, automation, and community. Based in Arlington, Virginia. 22+ years in WordPress. Author of 25+ books. Operator of a pickleball media network reaching millions.</p>
+      <div class="hero-ctas">
+        <a href="#network" class="btn-primary">View the Network</a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">25+</div>
+          <div class="hero-stat-label">Books Published</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">22+</div>
+          <div class="hero-stat-label">Years in WordPress</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">Active Web Properties</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-wrap">
+        <!-- Replace with your actual GitHub Pages hosted image URL -->
+        <img src="gregory-de-la-cruz.jpg" alt="Gregory de la Cruz" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Builder. Publisher.<br><em style="font-style:italic; color: #27ae60;">Perpetual Operator.</em></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I started in enterprise networking at <strong>Nortel Networks</strong> — a career that taught me systems thinking, the cost of failure at scale, and the discipline of testing before deploying. I've carried those habits into everything I've built since.</p>
+        <p>For 22+ years I've operated in the WordPress ecosystem — not as a developer for hire, but as a builder of my own properties. I understand hosting, performance, SEO, content pipelines, affiliate infrastructure, and the economics of niche publishing from the inside out.</p>
+        <p>Today I run a <strong>pickleball content network</strong> covering courts, gear, community, and culture — built with WordPress, automated with Make.com and the Anthropic API, and optimized for both readers and search. I also publish independently on Amazon across multiple niche categories.</p>
+        <p>The common thread across everything I build: <strong>systems that produce value without requiring constant manual intervention.</strong> Content that earns. Sites that scale. Operations that run.</p>
+      </div>
+      <div>
+        <div class="about-card">
+          <p class="about-card-label">Origin Story</p>
+          <p class="about-card-quote">"My 91-year-old mother has played pickleball every single day for a decade. She wouldn't stop talking about it until I paid attention. I built a publishing empire instead of picking up a paddle. She's still trying."</p>
+          <p class="about-card-attr">— Gregory de la Cruz, Arlington, Virginia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETWORK -->
+  <section class="network" id="network">
+    <p class="section-label">Properties</p>
+    <h2 class="section-title">The Network</h2>
+    <p class="section-intro">Four interconnected web properties covering pickleball content, community, and infrastructure — all built on WordPress, all operated independently.</p>
+    <div class="network-grid">
+      <a href="https://bigpickleballs.com" target="_blank" rel="noopener" class="network-card">
+        <div class="network-card-icon">🏓</div>
+        <div class="network-card-name">Big Pickle Balls</div>
+        <div class="network-card-url">bigpickleballs.com</div>
+        <p class="network-card-desc">Gear reviews, strategy guides, court culture, and deep-dive editorial content about the fastest-growing sport in America. Honest, experience-based coverage — no paid reviews, no corporate fluff.</p>
+        <span class="network-card-tag">Content Hub</span>
+      </a>
+      <a href="https://usapickleballs.com" target="_blank" rel="noopener" class="network-card">
+        <div class="network-card-icon">📍</div>
+        <div class="network-card-name">USA Pickleballs</div>
+        <div class="network-card-url">usapickleballs.com</div>
+        <p class="network-card-desc">The country's largest pickleball court directory — all 50 states, city-level pages, real court data, and interactive maps. Built with a Python/BeautifulSoup data pipeline and WP Go Maps integration.</p>
+        <span class="network-card-tag">Court Directory</span>
+      </a>
+      <a href="https://dinkerdates.com" target="_blank" rel="noopener" class="network-card">
+        <div class="network-card-icon">💚</div>
+        <div class="network-card-name">Dinker Dates</div>
+        <div class="network-card-url">dinkerdates.com</div>
+        <p class="network-card-desc">America's dedicated pickleball social network — connecting players on and off the court. Built on pH7Builder, hosted at InterServer with DirectAdmin. The community platform for a community-first sport.</p>
+        <span class="network-card-tag">Social Network</span>
+      </a>
+      <a href="https://baobabhosting.com" target="_blank" rel="noopener" class="network-card">
+        <div class="network-card-icon">🌳</div>
+        <div class="network-card-name">Baobab Hosting</div>
+        <div class="network-card-url">baobabhosting.com</div>
+        <p class="network-card-desc">WordPress hosting reviews and comparisons written from 22+ years of hands-on experience. Adversarial editorial voice — the hosting review site that doesn't pull punches about what actually matters.</p>
+        <span class="network-card-tag">Hosting Reviews</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="books" id="books">
+    <p class="section-label">Publishing</p>
+    <h2 class="section-title">25+ Books<br>on Amazon</h2>
+    <div class="books-inner">
+      <div class="books-text">
+        <p>Independent publishing has been a core part of my operation for years. I've published across pickleball strategy, gear guides, tournament preparation, and sport culture — building an Amazon author presence that serves both as a revenue stream and as an E-E-A-T credential for the content network.</p>
+        <p>Every book has a dedication page. Most of them are dedicated to my mother.</p>
+        <div class="books-count">
+          <div class="books-count-num">25+</div>
+          <div class="books-count-label">Books published on Amazon Kindle &amp; print</div>
+        </div>
+        <div class="books-categories">
+          <span class="books-cat">Pickleball Strategy</span>
+          <span class="books-cat">Gear Guides</span>
+          <span class="books-cat">Tournament Prep</span>
+          <span class="books-cat">Beginner Guides</span>
+          <span class="books-cat">Court Culture</span>
+          <span class="books-cat">Humor &amp; Jokes</span>
+        </div>
+        <a href="https://www.amazon.com/author/gregorydelacruz" target="_blank" rel="noopener" class="btn-primary">View on Amazon →</a>
+      </div>
+      <div class="books-visual">
+        <div class="book-spine spine-1">Pickleball Strategy Guide</div>
+        <div class="book-spine spine-2">The Kitchen Line</div>
+        <div class="book-spine spine-3">Gear That Works</div>
+        <div class="book-spine spine-4">Tournament Ready</div>
+        <div class="book-spine spine-5">Court Culture</div>
+        <div class="book-spine spine-6">Beginner's Playbook</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="stack" id="stack">
+    <p class="section-label">Technology</p>
+    <h2 class="section-title">The Stack</h2>
+    <p class="section-intro">22+ years of WordPress experience across hosting, performance, SEO, content pipelines, and automation. Currently running a fully automated content production system powered by the Anthropic API.</p>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <p class="stack-card-category">Core Platform</p>
+        <ul class="stack-items">
+          <li>WordPress (all properties)</li>
+          <li>Neve Pro theme</li>
+          <li>pH7Builder (DinkerDates)</li>
+          <li>InterServer hosting</li>
+          <li>DirectAdmin</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <p class="stack-card-category">Automation</p>
+        <ul class="stack-items">
+          <li>Make.com (scenario pipelines)</li>
+          <li>Anthropic API (Claude)</li>
+          <li>Airtable (content database)</li>
+          <li>Google Colab</li>
+          <li>WPCode Pro</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <p class="stack-card-category">Data & SEO</p>
+        <ul class="stack-items">
+          <li>Python + BeautifulSoup</li>
+          <li>AIOSEO Pro</li>
+          <li>WP Go Maps</li>
+          <li>GA4 + Google Tag Manager</li>
+          <li>WP Rocket</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <p class="stack-card-category">Content Pipeline</p>
+        <ul class="stack-items">
+          <li>Anthropic API → Airtable → WP</li>
+          <li>NotebookLM (podcast audio)</li>
+          <li>Grok (image generation)</li>
+          <li>Seriously Simple Podcasting</li>
+          <li>SocialPoster + Google Sheets</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <p class="stack-card-category">Monetization</p>
+        <ul class="stack-items">
+          <li>Amazon Associates</li>
+          <li>Google AdSense (pending)</li>
+          <li>Hosting affiliate network</li>
+          <li>WooCommerce storefront</li>
+          <li>Redbubble / MerchGhost POD</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <p class="stack-card-category">Background</p>
+        <ul class="stack-items">
+          <li>Nortel Networks (enterprise)</li>
+          <li>22+ years WordPress</li>
+          <li>Flippa exit strategy</li>
+          <li>Multi-AI workflow (Claude primary)</li>
+          <li>GitHub: gregorydelacruz</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="section-label">Connect</p>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <p>I'm always open to conversations about niche publishing, WordPress infrastructure, content automation, affiliate strategy, or the pickleball industry specifically.</p>
+        <p>Not looking for freelance work — but happy to talk shop with other operators, publishers, and builders who are serious about their craft.</p>
+        <p>Find me through any of the channels below.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:gregorydelacruz@bigpickleballs.com" class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          <div>
+            <div>gregorydelacruz@bigpickleballs.com</div>
+            <div class="contact-link-label">Email</div>
+          </div>
+        </a>
+        <a href="https://gregorydelacruz.com" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-icon">🌐</span>
+          <div>
+            <div>GregorydelaCruz.com</div>
+            <div class="contact-link-label">Personal Site</div>
+          </div>
+        </a>
+        <a href="https://www.amazon.com/author/gregorydelacruz" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-icon">📚</span>
+          <div>
+            <div>Amazon Author Page</div>
+            <div class="contact-link-label">25+ published books</div>
+          </div>
+        </a>
+        <a href="https://blog.feedspot.com/pickleball_blogs/" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-icon">🏅</span>
+          <div>
+            <div>Featured on Feedspot</div>
+            <div class="contact-link-label">Pickleball Blog Directory</div>
+          </div>
+        </a>
+        <a href="https://github.com/gregorydelacruz" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-icon">💻</span>
+          <div>
+            <div>github.com/gregorydelacruz</div>
+            <div class="contact-link-label">GitHub</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Gregory de la Cruz · Arlington, Virginia · <a href="https://bigpickleballs.com">BigPickleBalls.com</a> · <a href="https://usapickleballs.com">USAPickleballs.com</a> · <a href="https://dinkerdates.com">DinkerDates.com</a></p>
+  </footer>
+
+</body>
+</html>
